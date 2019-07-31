@@ -1,108 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Адаптивность -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>кнопки</title>
+    <!-- style -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Untitled-2.css">
+    <title>Alexlive</title>
     <style>
-        body {
+         *, *:after, *:before {
+    box-sizing: border-box;
+}
+body {
+    background: #fff;
     margin: 0;
-    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #272727;
+    padding-top: 60px;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index:99;
+    background-color: #f4f4f4;
+    padding-top: 14px; /* отступы сверху */
+    padding-bottom: 14px;/* отступы снизу */
+}
+.container{
+    max-width: 1107px; /* контейнер хедера по середине стр */
+    margin: auto;
+}
+.header-wrap{
     display: flex;
+    justify-content: space-between; /* распред по стр */
     align-items: center;
-    justify-content: center;
-    background-color: black;
 }
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.logo{
+    font-size: 16px;/* шрифт */
+    font-weight: 700; /* толщина шр */
+    color:#95989c;
 }
-
-nav ul li {
-    --c: goldenrod;
-    color: var(--c);
-    font-size: 16px;
-    border: 0.3em solid var(--c);
-    border-radius: 0.5em;
-    width: 12em;
-    height: 3em;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-    text-align: center;
-    line-height: 3em;
+.nav{
+    flex-basis: 80%;
+}
+.nav__link{
+    font-size: 12px;
+    color:#95989c;
+    text-decoration: none;/* с помощью этого убрали подчеркивание */
+    margin-right: 20px;
+}
+.login{
+    font-size: 12px;
+    color:#95989c;
+    text-decoration: none; /* с помощью этого убрали подчеркивание */
+    text-transform: uppercase;/* текст большими буквами */
+}
+.tabs{
+    display: flex;/* элементы друг за другом */
+    align-items: center;/* элементы по центру   ------- */
+    justify-content: space-between;/* раскидали элементы */
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 20px;
+}
+.tabs-logo{
+    font-size: 20px;
+    color: #95989c;
+}
+.tabs-menu{
+    list-style:none;/* Убрали точки в неупоряд. списке */
+    padding:0;
+    display: flex;
+}
+.link{
+    font-size: 20px;
+    color: #272727;
+    text-decoration: none;
+}
+.tabs-menu__item{
+    margin-left: 15px;
     position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: 0.5s;
-    margin: 1em;
-}
 
-nav ul li span {
+}
+.tabs-menu__item:after{
+content: '';
+display: block;
+position: absolute;
+bottom:-18px;
+left:0;
+width: 0%;
+height: 4px;
+background-color: #fcde29;
+transition: width 0.3s;
+}
+.tabs-menu__item:hover:after{
+    width: 100%;
+}
+.tabs-content{
+    background: #f2f4ff url('https://im0-tub-ru.yandex.net/i?id=910030be87ba2e26a1af14a5b8e2b832&n=13') no-repeat bottom right 135px;
+    border-radius:10px;
+    padding-top: 40px; /*Отступы*/
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 43px;
+    margin-bottom: 65px;
+}
+.tabs-content__title{
+    font-size: 36px;
+}
+.tabs-content__text{
+    font-size: 18px;
+    max-width:320px;
+    margin-bottom: 90px;
+}
+.button{
+    border-radius:6px;
+    background-color: #fcde29;
+    padding: 16px 33px;
+    font-size: 16px;
+    font-weight: 700;
+    border:none;/* выкл обводку кнопки */
+}
+.section-title{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+.section__title{
+    margin-bottom: 30px;
+}
+.card{
+    background-color: #f2f4ff;
+    padding:23px;
+    border-radius: 10px;
+    
+}
+.card__text{
+    max-width: 490px;
+    font-size: 16px;
+}
+.card_bottom{
+    background-image: url('https://i.imgur.com/iFdkIbF.png');
+    background-repeat: no-repeat;
+    background-position: center right 80px;
+    margin-bottom: 40px;
+}
+.section__card{
+    margin-bottom: 40px;
+    margin-right: 50px;
+}
+.section__card:last-child {
+    margin-right: 0;
+}
+.card-wrap{
+    display:flex;
+    justify-content: space-between;
+
+}
+.section-subtitle{
+    display:block;
+    text-align: center;
+    font-size: 16px;
+}
+.best__title{
+    margin-bottom: 10px;
+}
+.best-card{
+    width:240;
+    height: 260px;
+    padding:0;
+    position: relative;
+    
+}
+.best-card__image{
     position: absolute;
-    width: 25%;
-    height: 100%;
-    background-color: var(--c);
-    transform: translateY(150%);
-    border-radius: 50%;
-    left: calc((var(--n) - 1) * 25%);
-    transition: 0.5s;
-    transition-delay: calc((var(--n) - 1) * 0.1s);
-    z-index: -1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
 }
-
-nav ul li:hover {
-    color: black;
+.best-card__text{
+    max-width:200px;
+    margin:auto;
+    text-align: center;
+    margin-top:20px;
 }
-
-nav ul li:hover span {
-    transform: translateY(0) scale(2);
+.delivery{
+    padding-top: 60px;
+    padding-bottom: 100px;
 }
-
-nav ul li span:nth-child(1) {
-    --n: 1;
+.form{
+    max-width: 600px;
+    margin:auto;
 }
-
-nav ul li span:nth-child(2) {
-    --n: 2;
+.delivery__form{
+    margin-top: 60px;
 }
-
-nav ul li span:nth-child(3) {
-    --n: 3;
+.input{
+    font-size: 16px;
+    background-color: #f7f8ff;
+    border:none;
+    padding: 20px;
+    width: 100%;
+    border-radius:7px;
 }
+.form__input{
+    margin-bottom: 30px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.col-100{
+    flex-basis: 100%;
+}
+.col-50{
+    flex-basis: 49%;
+}
+.button-block{
+    display:flex;
+    justify-content: flex-end;
+}
+.footer{
+    background-color: #f7f7f7;
+    padding: 60px 0;
+}
+.footer__text{
+    text-align: center;
+    max-width: 670px;
+    margin: auto;
+}
+@media(max-width: 1200px){
+    .container{
+        max-width: 960px;
+        width: 90%;
+    }
+    .best-card{
+        width: 200px;
+        height: 250px;
+        overflow: hidden;
+    }
+}
+@media(max-width: 992px){
+.container{
+    max-width: 760px;
+}
+.tabs-content{
+    background-size: 200px;
+}
+.card_bottom{
+    background-size: contain;
+    background-position: center right 0;
+}
+.card__text{
+    max-width: 300px;
+}
+.card-wrap{
+    flex-wrap: wrap;
+}
+.card-block{
+    flex-basis: 50%;
+    margin-bottom: 30px;
+}
+.best-card{
+    margin: auto;
+}
+}
+@media(max-width: 768px){
+.container{
+max-width: 960px;
+}
+}
+@media(max-width: 576px){
+.container{
 
-nav ul li span:nth-child(4) {
-    --n: 4;
+}
 }
     </style>
 </head>
 <body>
- <header>
-  <h1></h1>   
- </header> 
- <nav>
-    <ul>
-      <li>
-        home
-        <span></span><span></span><span></span><span></span>
-      </li>
-      <li>
-        products
-        <span></span><span></span><span></span><span></span>
-      </li>
-      <li>
-        services
-        <span></span><span></span><span></span><span></span>
-      </li>
-      <li>
-        contact
-        <span></span><span></span><span></span><span></span>
-      </li>
-    </ul>
-  </nav>  
+    <header class="header">
+  <div class="container">
+        <div class="header-wrap">
+                <div class="logo">AlexLive</div>
+                <nav class="nav">
+                <a href="#" class="nav__link">Обзор</a>
+                <a href="#" class="nav__link">Примеры</a>
+                <a href="#" class="nav__link">Документы</a>
+                <a href="#" class="nav__link">Готовые обеды</a>
+                <a href="#" class="nav__link">Как пользоваться</a>
+              </nav>
+              <a href="#" class="login">Войти</a>
+         </div> <!-- header-wrap -->
+  </div>
+    </header>
+    <section>
+        <div class="container">
+                <div class="tabs">
+                        <h1 class="tabs-logo">AlexandrBespalov</h1>
+                        <ul class="tabs-menu">
+                <li class="tabs-menu__item"><a class="link" href="">Протеин</a></li>
+                <li class="tabs-menu__item"><a class="link" href="">Креатин</a></li>
+                <li class="tabs-menu__item"><a class="link" href="">BCAA</a></li>
+                <li class="tabs-menu__item"><a class="link" href="">О нас</a></li>
+                        </ul>
+                    </div> <!-- /tabs -->  
+                    <div class="tabs-content">
+                        <h2 class="tabs-content__title">AlexLivePROTEIN<br> Это надежно и безопасно.</h2>
+                        <p class="tabs-content__text">Ёу трррря</p>
+                        <button class="button">Заказать</button>
+                    </div>
+                    
+         </div><!-- /container -->
+    </section>
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title section__title">Трехлитровая банка с двойным дном</h2>
+            <div class="card card-full card_bottom">
+                <h3 class="card__title">Часть денег проваливается на дно</h3>
+                <p class="card__text">
+                К концу месяца у вас накапливается сумма равная 10% от&nbsp;всех пополнений. Можно смело тратить их на мечту!
+                </p>
+            </div>
+            <div class="card-wrap">
+                <div class="card section__card">
+                    <h3 class="card__title">Деньги дома</h3>
+                    <p class="card__text">Когда деньги лежат дома, у вас нет возможности потратить их на всякую ерунду</p>
+                </div>
+                <div class="card section__card">
+                    <h3 class="card__title">Без комиссии</h3>
+                    <p class="card__text">Пополняйте банку без комиссии. Доставать деньги также можно без комиссии и штрафов</p>
+                </div>
+                <div class="card section__card">
+                    <h3 class="card__title">Копейка рубль бережет</h3>
+                    <p class="card__text">Вы можете бросать в банку даже мелочь, которая лежала в кармане после покупок.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="best">
+        <div class="container">
+            <h2 class="section-title best__title">Лучшая банка в мире</h2>
+            <span class="section-subtitle best__subtitle">По версии мамы, бабушки и тети</span>
+            <div class="card-wrap">
+               <div class="card-block">
+                   <div class="card best-card">
+                       <img src="https://i.imgur.com/o3eyNTS.png" alt="" class="best-card__image">
+                   </div>
+                   <p class="best-card__text">Контролируйте доходы, на банке есть бумажка</p>
+               </div>
+               <div class="card-block">
+                   <div class="card best-card">
+                       <img src="https://i.imgur.com/o3eyNTS.png" alt="" class="best-card__image"> 
+                    </div>
+                   <p class="best-card__text">Молоточек для самых важных случаев</p>
+               </div>
+               <div class="card-block">
+                   <div class="card best-card">
+                     <img src="https://i.imgur.com/o3eyNTS.png" alt="" class="best-card__image"> 
+                    </div>
+                   <p class="best-card__text">Пополнение одним легким касанием руки</p>
+               </div>
+               <div class="card-block">
+                   <div class="card best-card">
+                        <img src="https://i.imgur.com/o3eyNTS.png" alt="" class="best-card__image">
+                   </div>
+                   <p class="best-card__text">Одна банка-сколько угодно валют</p>
+               </div>
+            </div>
+        </div>
+    </section>
+    <section class="delivery">
+        <div class="container">
+            <h2 class="section-title">Получите банку, не выходя из дома</h2>
+            <form action="#" class="form delivery__form">
+            <div class="row">
+                <div class="col-100">
+                    <input type="text" class="input form__input" placeholder="Фамилия Имя Отчество">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <input type="tel" class="input form__input" placeholder="Номер телефона">
+                </div>
+                <div class="col-50">
+                    <input type="email" class="input form__input" placeholder="Электронная почта">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-100">
+                    <input type="text" class="input form__input" placeholder="Дата рождения">
+                </div>
+            </div>
+            <div class="button-block">
+                <button type="submit" class="button">Заказать банку</button>
+            </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">
+                Название вымышлено и все совпадения случайны.Сайт не является офертой или рекламным предложением.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
